@@ -1,19 +1,50 @@
 @use "mixin.scss" as mi;
+@use "variables.scss" as var;
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+html {
+    font-family: 'Red Hat Display', sans-serif;
+}
 .body {
     &-header {
         @include mi.flex-center;
-        padding: 1em;
+        padding: var.$padding;
     }
     &-main {
         &-groupchat {
             @include mi.flex-btw;
             flex-wrap: wrap;
-            gap: 50px 0px;
+            gap: 1em 0px;
+            &-text {
+                width: 100%;
+                @include mi.flex-col-center;
+                padding: var.$padding;
+                gap: 1em;
+                text-align: center;
+                &-title {
+                    @include mi.text-style(var.$title-color, var.$step-0);
+                }
+                &-desc {
+                    @include mi.text-style(var.$desc-color, var.$step--5);
+                }
+                &-button {
+                    @include mi.flex-col-center;
+                    gap: 0.6em;
+
+                    &-down {
+                        @include mi.button-style(var.$green);
+                        & span {
+                            color: rgb(143,228,249);
+                        }
+                    }
+                    &-what {
+                        @include mi.button-style(var.$purple);
+                    }
+                }
+            }
             &-avatars {
                 // height: 30em;
                 width: 49%;
@@ -72,10 +103,21 @@
     .body {
         &-main {
             &-groupchat {
+                gap: 0em;
+                &-text {
+                    flex-grow: 1;
+                }
                 &-avatars {
-                    width: 31%;
+                    align-self: flex-start;
+                    width: 33%;
                     $gap-row: 5.5em;
                     gap: $gap-row 1.5em;
+                    &-leftwrap {
+                        order: 1;
+                    }
+                    &-rightwrap {
+                        order: 3;
+                    }
                     &-left {
                         @for $var from 1 to 4 {
                             @include mi.avatar-alignment(($gap-row - 2em), "left", $var);

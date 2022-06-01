@@ -1,3 +1,5 @@
+@use "variables.scss" as var;
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -17,6 +19,18 @@
     @media screen and (min-width: $width) {
         @content;
     }
+}
+@mixin text-style($color, $font-size) {
+    color: $color;
+    font-size: $font-size;
+}
+@mixin button-style($background-color, $vertical-padding: 1.2em, $hori-padding:1.9em) {
+    color: white;
+    background-color: $background-color;
+    border: none;
+    padding: $vertical-padding $hori-padding;
+    border-radius: 28px;
+    font-size: var.$step--5;
 }
 @mixin avatar-alignment($transform-height, $side, $current-index) {
     @if $side == "left" {

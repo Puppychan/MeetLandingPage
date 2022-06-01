@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Red Hat Display", sans-serif;
+}
+
 .body-header {
   display: flex;
   justify-content: center;
@@ -15,7 +19,51 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 50px 0px;
+  gap: 1em 0px;
+}
+.body-main-groupchat-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  text-align: center;
+}
+.body-main-groupchat-text-title {
+  color: rgb(40, 40, 62);
+  font-size: clamp(2.5rem, 2.14rem + 1.79vw, 4.38rem);
+}
+.body-main-groupchat-text-desc {
+  color: rgb(134, 134, 156);
+  font-size: clamp(1.01rem, 0.92rem + 0.41vw, 1.43rem);
+}
+.body-main-groupchat-text-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.6em;
+}
+.body-main-groupchat-text-button-down {
+  color: white;
+  background-color: rgb(78, 149, 168);
+  border: none;
+  padding: 1.2em 1.9em;
+  border-radius: 28px;
+  font-size: clamp(1.01rem, 0.92rem + 0.41vw, 1.43rem);
+}
+.body-main-groupchat-text-button-down span {
+  color: rgb(143, 228, 249);
+}
+.body-main-groupchat-text-button-what {
+  color: white;
+  background-color: rgb(133, 94, 176);
+  border: none;
+  padding: 1.2em 1.9em;
+  border-radius: 28px;
+  font-size: clamp(1.01rem, 0.92rem + 0.41vw, 1.43rem);
 }
 .body-main-groupchat-avatars {
   width: 49%;
@@ -74,9 +122,22 @@
   }
 }
 @media screen and (min-width: 1040px) {
+  .body-main-groupchat {
+    gap: 0em;
+  }
+  .body-main-groupchat-text {
+    flex-grow: 1;
+  }
   .body-main-groupchat-avatars {
-    width: 31%;
+    align-self: flex-start;
+    width: 33%;
     gap: 5.5em 1.5em;
+  }
+  .body-main-groupchat-avatars-leftwrap {
+    order: 1;
+  }
+  .body-main-groupchat-avatars-rightwrap {
+    order: 3;
   }
   .body-main-groupchat-avatars-left1 {
     transform: translateY(3.5em);
