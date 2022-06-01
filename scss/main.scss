@@ -1,0 +1,97 @@
+@use "mixin.scss" as mi;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.body {
+    &-header {
+        @include mi.flex-center;
+        padding: 1em;
+    }
+    &-main {
+        &-groupchat {
+            @include mi.flex-btw;
+            flex-wrap: wrap;
+            gap: 50px 0px;
+            &-avatars {
+                // height: 30em;
+                width: 49%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                $gap-row: 2em;
+                gap: $gap-row 1.2em;
+                &-left {
+                    justify-self: center;
+                    width: 100%;
+                    @for $var from 1 to 4 {
+                        // @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
+                        @include mi.avatar-alignment(($gap-row - 0.5em), "left", $var);
+                    }
+                }
+                &-right {
+                    justify-self: center;
+                    width: 100%;
+                    @for $var from 1 to 4 {
+                        // @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
+                        @include mi.avatar-alignment(($gap-row - 0.5em), "right", $var);
+                    }
+                }
+                
+            }
+        }
+    }
+
+}
+@include mi.min-width(760px) {
+    .body {
+        &-main {
+            &-groupchat {
+                &-avatars {
+                    // $gap-row: 8em;
+                    $gap-row: 4em;
+                    gap: $gap-row 2.5em;
+                    &-left {
+                        @for $var from 1 to 4 {
+                            @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
+                        }
+                    }
+                    &-right {
+                        @for $var from 1 to 4 {
+                            @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+@include mi.min-width(1040px) {
+    .body {
+        &-main {
+            &-groupchat {
+                &-avatars {
+                    width: 31%;
+                    $gap-row: 5.5em;
+                    gap: $gap-row 1.5em;
+                    &-left {
+                        @for $var from 1 to 4 {
+                            @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
+                        }
+                    }
+                    &-right {
+                        @for $var from 1 to 4 {
+                            @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
+                        }
+                    }
+                }
+                &-text {
+                    width: 30%;
+                    order: 2;
+                }
+            }
+        }
+    }
+}

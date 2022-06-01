@@ -1,0 +1,50 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-col-center{
+    @include flex-center;
+    flex-direction: column;
+}
+@mixin flex-btw {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin min-width($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+@mixin avatar-alignment($transform-height, $side, $current-index) {
+    @if $side == "left" {
+        &#{$current-index} {
+            @if not ($current-index % 2 == 0) {
+                transform: translateY($transform-height);
+                // align-self: flex-end;
+            }
+        }
+        &#{$current-index + 3} {
+            @if not (($current-index + 3) % 2 == 0) {
+                transform: translateY(calc(-1 * $transform-height));
+                // align-self: flex-start;
+            }
+        }
+    }
+    @else {
+         &#{$current-index} {
+            @if $current-index % 2 == 0 {
+                transform: translateY($transform-height);
+                // align-self: flex-end;
+            }
+        }
+        &#{$current-index + 3} {
+            @if (($current-index + 3) % 2 == 0) {
+                transform: translateY(calc(-1 * $transform-height));
+                // align-self: flex-start;
+            }
+        }
+    }
+}

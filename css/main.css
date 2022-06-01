@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.body-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+.body-main-groupchat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px 0px;
+}
+.body-main-groupchat-avatars {
+  width: 49%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em 1.2em;
+}
+.body-main-groupchat-avatars-left {
+  justify-self: center;
+  width: 100%;
+}
+.body-main-groupchat-avatars-left1 {
+  transform: translateY(1.5em);
+}
+.body-main-groupchat-avatars-left5 {
+  transform: translateY(-1.5em);
+}
+.body-main-groupchat-avatars-left3 {
+  transform: translateY(1.5em);
+}
+.body-main-groupchat-avatars-right {
+  justify-self: center;
+  width: 100%;
+}
+.body-main-groupchat-avatars-right4 {
+  transform: translateY(-1.5em);
+}
+.body-main-groupchat-avatars-right2 {
+  transform: translateY(1.5em);
+}
+.body-main-groupchat-avatars-right6 {
+  transform: translateY(-1.5em);
+}
+
+@media screen and (min-width: 760px) {
+  .body-main-groupchat-avatars {
+    gap: 4em 2.5em;
+  }
+  .body-main-groupchat-avatars-left1 {
+    transform: translateY(2em);
+  }
+  .body-main-groupchat-avatars-left5 {
+    transform: translateY(-2em);
+  }
+  .body-main-groupchat-avatars-left3 {
+    transform: translateY(2em);
+  }
+  .body-main-groupchat-avatars-right4 {
+    transform: translateY(-2em);
+  }
+  .body-main-groupchat-avatars-right2 {
+    transform: translateY(2em);
+  }
+  .body-main-groupchat-avatars-right6 {
+    transform: translateY(-2em);
+  }
+}
+@media screen and (min-width: 1040px) {
+  .body-main-groupchat-avatars {
+    width: 31%;
+    gap: 5.5em 1.5em;
+  }
+  .body-main-groupchat-avatars-left1 {
+    transform: translateY(3.5em);
+  }
+  .body-main-groupchat-avatars-left5 {
+    transform: translateY(-3.5em);
+  }
+  .body-main-groupchat-avatars-left3 {
+    transform: translateY(3.5em);
+  }
+  .body-main-groupchat-avatars-right4 {
+    transform: translateY(-3.5em);
+  }
+  .body-main-groupchat-avatars-right2 {
+    transform: translateY(3.5em);
+  }
+  .body-main-groupchat-avatars-right6 {
+    transform: translateY(-3.5em);
+  }
+  .body-main-groupchat-text {
+    width: 30%;
+    order: 2;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
