@@ -1,19 +1,28 @@
 @use "variables.scss" as var;
 
-@mixin flex-center {
+@mixin flex-center($gap: 0) {
     display: flex;
+    gap: $gap;
     justify-content: center;
     align-items: center;
 }
-@mixin flex-col-center{
+@mixin flex-col-center($gap: 0) {
     @include flex-center;
+    gap: $gap;
     flex-direction: column;
 }
-@mixin flex-btw {
+@mixin flex-col($gap: 0) {
     display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+@mixin flex-btw($gap: 0) {
+    display: flex;
+    gap: $gap;
     align-items: center;
     justify-content: space-between;
 }
+
 
 @mixin min-width($width) {
     @media screen and (min-width: $width) {
@@ -32,32 +41,38 @@
     border-radius: 28px;
     font-size: var.$step--5;
 }
-@mixin avatar-alignment($transform-height, $side, $current-index) {
+@mixin avatar-alignment($transform-height, $side) {
+    justify-self: center;
+    width: 100%;
     @if $side == "left" {
-        &#{$current-index} {
-            @if not ($current-index % 2 == 0) {
-                transform: translateY($transform-height);
-                // align-self: flex-end;
+        @for $current-index from 1 to 4 {
+            &#{$current-index} {
+                @if not ($current-index % 2 == 0) {
+                    transform: translateY($transform-height);
+                    // align-self: flex-end;
+                }
             }
-        }
-        &#{$current-index + 3} {
-            @if not (($current-index + 3) % 2 == 0) {
-                transform: translateY(calc(-1 * $transform-height));
-                // align-self: flex-start;
+            &#{$current-index + 3} {
+                @if not (($current-index + 3) % 2 == 0) {
+                    transform: translateY(calc(-1 * $transform-height));
+                    // align-self: flex-start;
+                }
             }
         }
     }
     @else {
-         &#{$current-index} {
-            @if $current-index % 2 == 0 {
-                transform: translateY($transform-height);
-                // align-self: flex-end;
+        @for $current-index from 1 to 4 {
+            &#{$current-index} {
+                @if $current-index % 2 == 0 {
+                    transform: translateY($transform-height);
+                    // align-self: flex-end;
+                }
             }
-        }
-        &#{$current-index + 3} {
-            @if (($current-index + 3) % 2 == 0) {
-                transform: translateY(calc(-1 * $transform-height));
-                // align-self: flex-start;
+            &#{$current-index + 3} {
+                @if (($current-index + 3) % 2 == 0) {
+                    transform: translateY(calc(-1 * $transform-height));
+                    // align-self: flex-start;
+                }
             }
         }
     }

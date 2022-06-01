@@ -14,15 +14,14 @@ html {
         padding: var.$padding;
     }
     &-main {
+        @include mi.flex-col(4.5em);
         &-groupchat {
-            @include mi.flex-btw;
+            @include mi.flex-btw(1em 0px);
             flex-wrap: wrap;
-            gap: 1em 0px;
             &-text {
                 width: 100%;
-                @include mi.flex-col-center;
+                @include mi.flex-col-center(1em);
                 padding: var.$padding;
-                gap: 1em;
                 text-align: center;
                 &-title {
                     @include mi.text-style(var.$title-color, var.$step-0);
@@ -31,8 +30,7 @@ html {
                     @include mi.text-style(var.$desc-color, var.$step--5);
                 }
                 &-button {
-                    @include mi.flex-col-center;
-                    gap: 0.6em;
+                    @include mi.flex-col-center(0.6em);
 
                     &-down {
                         @include mi.button-style(var.$green);
@@ -54,22 +52,26 @@ html {
                 $gap-row: 2em;
                 gap: $gap-row 1.2em;
                 &-left {
-                    justify-self: center;
-                    width: 100%;
-                    @for $var from 1 to 4 {
-                        // @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
-                        @include mi.avatar-alignment(($gap-row - 0.5em), "left", $var);
-                    }
+                    @include mi.avatar-alignment(($gap-row - 0.5em), "left");
                 }
                 &-right {
-                    justify-self: center;
-                    width: 100%;
-                    @for $var from 1 to 4 {
-                        // @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
-                        @include mi.avatar-alignment(($gap-row - 0.5em), "right", $var);
-                    }
+                    @include mi.avatar-alignment(($gap-row - 0.5em), "right");
                 }
                 
+            }
+        }
+        &-details {
+            padding: var.$padding;
+            &-img {
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto auto;
+                align-items: center;
+                gap: 1em;
+                &-card {
+                    width: 100%;
+                    border-radius: 10%;
+                }
             }
         }
     }
@@ -84,15 +86,16 @@ html {
                     $gap-row: 4em;
                     gap: $gap-row 2.5em;
                     &-left {
-                        @for $var from 1 to 4 {
-                            @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
-                        }
+                        @include mi.avatar-alignment(($gap-row - 2em), "left");
                     }
                     &-right {
-                        @for $var from 1 to 4 {
-                            @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
-                        }
+                        @include mi.avatar-alignment(($gap-row - 2em), "left");
                     }
+                }
+            }
+            &-details {
+                &-img {
+                    grid-template-columns: repeat(4, auto);
                 }
             }
         }
@@ -104,9 +107,6 @@ html {
         &-main {
             &-groupchat {
                 gap: 0em;
-                &-text {
-                    flex-grow: 1;
-                }
                 &-avatars {
                     align-self: flex-start;
                     width: 33%;
@@ -118,21 +118,15 @@ html {
                     &-rightwrap {
                         order: 3;
                     }
-                    &-left {
-                        @for $var from 1 to 4 {
-                            @include mi.avatar-alignment(($gap-row - 2em), "left", $var);
-                        }
-                    }
-                    &-right {
-                        @for $var from 1 to 4 {
-                            @include mi.avatar-alignment(($gap-row - 2em), "right", $var);
-                        }
-                    }
                 }
                 &-text {
+                    flex-grow: 1;
                     width: 30%;
                     order: 2;
                 }
+            }
+            &-details {
+                padding: 5em;
             }
         }
     }
