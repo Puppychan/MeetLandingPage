@@ -50,8 +50,8 @@ html {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
 
-                $gap-row: 2em;
-                gap: $gap-row 1.2em;
+                $gap-row: 2.8em;
+                gap: $gap-row 0.5em;
                 &-left {
                     @include mi.avatar-alignment(($gap-row - 0.5em), "left");
                 }
@@ -118,6 +118,9 @@ html {
 }
 @include mi.min-width(760px) {
     .body {
+        &-img {
+            height: 20%;
+        }
         &-main {
             gap: 8em;
             &-groupchat {

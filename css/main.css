@@ -116,33 +116,33 @@ html {
   width: 49%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2em 1.2em;
+  gap: 2.8em 0.5em;
 }
 .body-main-groupchat-avatars-left {
   justify-self: center;
   width: 100%;
 }
 .body-main-groupchat-avatars-left1 {
-  transform: translateY(1.5em);
+  transform: translateY(2.3em);
 }
 .body-main-groupchat-avatars-left5 {
-  transform: translateY(-1.5em);
+  transform: translateY(-2.3em);
 }
 .body-main-groupchat-avatars-left3 {
-  transform: translateY(1.5em);
+  transform: translateY(2.3em);
 }
 .body-main-groupchat-avatars-right {
   justify-self: center;
   width: 100%;
 }
 .body-main-groupchat-avatars-right4 {
-  transform: translateY(-1.5em);
+  transform: translateY(-2.3em);
 }
 .body-main-groupchat-avatars-right2 {
-  transform: translateY(1.5em);
+  transform: translateY(2.3em);
 }
 .body-main-groupchat-avatars-right6 {
-  transform: translateY(-1.5em);
+  transform: translateY(-2.3em);
 }
 .body-main-details {
   padding: 1em;
@@ -254,6 +254,9 @@ html {
 }
 
 @media screen and (min-width: 760px) {
+  .body-img {
+    height: 20%;
+  }
   .body-main {
     gap: 8em;
   }
