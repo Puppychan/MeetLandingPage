@@ -289,6 +289,16 @@ html {
   .body-main-groupchat-text {
     width: 65%;
   }
+  .body-main-groupchat-text-button {
+    flex-direction: row;
+    width: 85%;
+  }
+  .body-main-groupchat-text-button-down, .body-main-groupchat-text-button-what {
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+  }
   .body-main-details {
     gap: 6em;
   }

@@ -134,6 +134,14 @@ html {
                 }
                 &-text {
                     width: 65%;
+                    &-button {
+                        flex-direction: row;
+                        width: 85%;
+                        &-down, &-what {
+                            @include mi.padding-side(1.2em, "horizontal");
+                            @include mi.padding-side(1em, "vertical");
+                        }
+                    }
                 }
             }
             &-details {
