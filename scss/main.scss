@@ -14,9 +14,10 @@ html {
         padding: var.$padding;
     }
     &-main {
-        @include mi.flex-col(4.5em);
+        @include mi.flex-col(6em);
+        margin-bottom: 7em;
         &-groupchat {
-            @include mi.flex-btw(1em 0px);
+            @include mi.flex-center(1em 0px);
             flex-wrap: wrap;
             &-text {
                 width: 100%;
@@ -62,6 +63,7 @@ html {
         }
         &-details {
             padding: var.$padding;
+            @include mi.flex-col-center(3em);
             &-img {
                 width: 100%;
                 display: grid;
@@ -73,6 +75,20 @@ html {
                     border-radius: 10%;
                 }
             }
+            &-text {
+                @include mi.flex-col-center(0.8em);
+                text-align: center;
+                &-subtitle {
+                    text-transform: uppercase;
+                    @include mi.text-style(var.$green, var.$step--4);
+                }
+                &-title {
+                    @include mi.text-style(var.$title-color, var.$step--2);
+                }
+                &-desc {
+                    @include mi.text-style(var.$desc-color, var.$step--5);
+                }
+            }
         }
     }
 
@@ -80,6 +96,7 @@ html {
 @include mi.min-width(760px) {
     .body {
         &-main {
+            gap: 8em;
             &-groupchat {
                 &-avatars {
                     // $gap-row: 8em;
@@ -89,22 +106,31 @@ html {
                         @include mi.avatar-alignment(($gap-row - 2em), "left");
                     }
                     &-right {
-                        @include mi.avatar-alignment(($gap-row - 2em), "left");
+                        @include mi.avatar-alignment(($gap-row - 2em), "right");
                     }
+                }
+                &-text {
+                    width: 65%;
                 }
             }
             &-details {
+                gap: 6em;
                 &-img {
                     grid-template-columns: repeat(4, auto);
+                }
+                &-text {
+                    width: 65%;
+                    gap: 0.5em;
                 }
             }
         }
     }
 
 }
-@include mi.min-width(1040px) {
+@include mi.min-width(1100px) {
     .body {
         &-main {
+            gap: 17em;
             &-groupchat {
                 gap: 0em;
                 &-avatars {
@@ -118,6 +144,12 @@ html {
                     &-rightwrap {
                         order: 3;
                     }
+                    &-left {
+                        @include mi.avatar-alignment(($gap-row - 2em), "left");
+                    }
+                    &-right {
+                        @include mi.avatar-alignment(($gap-row - 2em), "right");
+                    }
                 }
                 &-text {
                     flex-grow: 1;
@@ -126,7 +158,13 @@ html {
                 }
             }
             &-details {
-                padding: 5em;
+                gap: 8em;
+                padding-left: 5em;
+                padding-right: 5em;
+                &-text {
+                    gap: 1em;
+                    width: 35%;
+                }
             }
         }
     }

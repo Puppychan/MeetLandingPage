@@ -32,6 +32,8 @@
 @mixin text-style($color, $font-size) {
     color: $color;
     font-size: $font-size;
+    letter-spacing: 3px;
+    word-spacing: 1.3;
 }
 @mixin button-style($background-color, $vertical-padding: 1.2em, $hori-padding:1.9em) {
     color: white;
