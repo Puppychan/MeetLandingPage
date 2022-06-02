@@ -91,6 +91,29 @@ html {
             }
         }
     }
+    &-footer {
+        @include mi.flex-center;
+        @include mi.footer-background("mobile");
+        @include mi.padding-side(9em, "vertical");
+        text-align: center;
+        &-wrap {
+            @include mi.flex-col-center(3em);
+        }
+        &-quote {
+            @include mi.text-style(white, var.$step--2);
+        }
+        &-desc {
+            @include mi.text-style(white, var.$step--4);
+            font-weight: 500;
+        }
+        &-button {
+            @include mi.button-style(var.$purple, 1.3em, 2.1em);
+            font-weight: 600;
+            & span {
+                color: #d9b8ff;
+            }
+        }
+    }
 
 }
 @include mi.min-width(760px) {
@@ -122,6 +145,13 @@ html {
                     width: 65%;
                     gap: 0.5em;
                 }
+            }
+        }
+        &-footer {
+            @include mi.footer-background("tablet");
+            @include mi.padding-side(5em, "vertical");
+            &-wrap {
+                width: 65%;
             }
         }
     }
@@ -159,12 +189,31 @@ html {
             }
             &-details {
                 gap: 8em;
-                padding-left: 5em;
-                padding-right: 5em;
+                @include mi.padding-side(5em, "horizontal");
                 &-text {
                     gap: 1em;
                     width: 35%;
                 }
+            }
+        }
+        &-footer {
+            @include mi.footer-background("desktop");
+            text-align: start;
+            @include mi.padding-side(8em, "vertical");
+            &-wrap {
+                @include mi.flex-btw(2em);
+                width: 90%;
+            }
+            &-quote {
+                width: 40%;
+            }
+            &-desc {
+                width: 60%;
+            }
+            &-button {
+                flex-grow: 1;
+                @include mi.padding-side(0.8em, "vertical");
+                @include mi.padding-side(2.5em, "horizontal");
             }
         }
     }

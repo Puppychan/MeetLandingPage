@@ -18,11 +18,14 @@
 }
 @mixin flex-btw($gap: 0) {
     display: flex;
-    gap: $gap;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
 }
+@mixin footer-background($url) {
+    background: linear-gradient(180deg, rgba(78,149,168,0.8) 0%, rgba(78,149,168,0.8) 100%) center/cover no-repeat, url("../assets/images/" + $url + "/image-footer.jpg") center / cover no-repeat;
 
+}
 
 @mixin min-width($width) {
     @media screen and (min-width: $width) {
@@ -35,6 +38,16 @@
     letter-spacing: 3px;
     word-spacing: 1.3;
 }
+@mixin padding-side($paddingNumber, $side) {
+    @if $side == "horizontal" {
+        padding-left: $paddingNumber;
+        padding-right: $paddingNumber;
+    }
+    @else {
+        padding-bottom: $paddingNumber;
+        padding-top: $paddingNumber;
+    }
+}
 @mixin button-style($background-color, $vertical-padding: 1.2em, $hori-padding:1.9em) {
     color: white;
     background-color: $background-color;
@@ -42,6 +55,23 @@
     padding: $vertical-padding $hori-padding;
     border-radius: 28px;
     font-size: var.$step--5;
+    position: relative;
+    overflow: hidden;
+    transition: transform 200ms ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+    &:hover::after {
+        cursor: pointer;
+        transform: scale(1.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: " ";
+        background-color: rgba(255, 255, 255, 0.3);
+    }
 }
 @mixin avatar-alignment($transform-height, $side) {
     justify-self: center;
